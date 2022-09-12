@@ -48,4 +48,34 @@ RSpec.describe F1SalesCustom::Hooks::Lead do
       end
     end
   end
+
+  context 'when is from another source' do
+    let(:lead) do
+      lead = OpenStruct.new
+      lead.source = source
+      lead.product = product
+
+      lead
+    end
+
+    let(:source) do
+      source = OpenStruct.new
+      source.name = 'Another source'
+
+      source
+    end
+
+    let(:product) do
+      product = OpenStruct.new
+      product.name = ''
+
+      product
+    end
+
+    let(:switch_source) { described_class.switch_source(lead) }
+
+    it 'returns source name' do
+      expect(switch_source).to eq('Another source')
+    end
+  end
 end
