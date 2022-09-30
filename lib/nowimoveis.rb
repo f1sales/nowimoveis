@@ -18,6 +18,8 @@ module Nowimoveis
         "#{source_name} - Prospectores"
       elsif product_name_down['corretores']
         "#{source_name} - Corretores"
+      elsif product_name_down['marina']
+        "#{source_name} - Marina"
       else
         source_name
       end

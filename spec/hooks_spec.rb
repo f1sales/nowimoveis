@@ -47,6 +47,14 @@ RSpec.describe F1SalesCustom::Hooks::Lead do
         expect(switch_source).to eq('Facebook - Corretores')
       end
     end
+
+    context 'when the product contains Marina' do
+      before { product.name = '[Marina] - Mozart' }
+
+      it 'return source Facebook - Corretores' do
+        expect(switch_source).to eq('Facebook - Marina')
+      end
+    end
   end
 
   context 'when is from another source' do
