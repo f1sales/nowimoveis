@@ -6,7 +6,10 @@ RSpec.describe F1SalesCustom::Email::Parser do
   context 'when is from website to SBC' do
     let(:email) do
       email = OpenStruct.new
-      email.to = [{:token=>"website", :host=>"nowimoveis.f1sales.net", :email=>"website@nowimoveis.f1sales.net", :full=>"website@nowimoveis.f1sales.net", :name=>nil}, {:token=>"nowimoveis+jplgb1gprpmcur4acdl2", :host=>"boards.trello.com", :email=>"nowimoveis+jplgb1gprpmcur4acdl2@boards.trello.com", :full=>"nowimoveis+jplgb1gprpmcur4acdl2@boards.trello.com", :name=>nil}]
+      email.to = [
+        { token: 'website', host: 'nowimoveis.f1sales.net', email: 'website@nowimoveis.f1sales.net',
+          full: 'website@nowimoveis.f1sales.net', name: nil }, { token: 'nowimoveis+jplgb1gprpmcur4acdl2', host: 'boards.trello.com', email: 'nowimoveis+jplgb1gprpmcur4acdl2@boards.trello.com', full: 'nowimoveis+jplgb1gprpmcur4acdl2@boards.trello.com', name: nil }
+      ]
       email.subject = 'Lead teste'
       email.body = "Nome: Lead teste \nEmail: teste@torinoresidencial.com.br \nTelefone: 11902121219 \nProduto: Torino \n\n--- \n\nDate: 02/12/2022 \nTime: 12:19"
 
